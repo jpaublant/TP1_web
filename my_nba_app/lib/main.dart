@@ -48,7 +48,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quibi NBA App'),
+        title: const Text('My NBA App'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -101,7 +101,7 @@ class Actu extends StatelessWidget {
       child: Center(child: 
         Text(
         entries[index],
-        style: TextStyle(fontWeight: FontWeight.bold)
+        style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)
         )
       ),
     );
@@ -112,18 +112,31 @@ class Actu extends StatelessWidget {
     child: Container(
       padding: const EdgeInsets.all(8),
       color: Colors.lightBlue[600],
-      height: 200,
+      
+      
       child : Column(
       children:<Widget>[
         Expanded(
-          child: Image.network('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kevin_Durant_jumpshot.jpg/1024px-Kevin_Durant_jumpshot.jpg',
-          )),
-        Expanded(
-          child: Text('Les Brooklyn Nets gagnent facilement Contre le Warriors grâce à un grand Durant',
-          style: TextStyle(fontWeight: FontWeight.bold)
-          padding: const EdgeInsets.all(8),
-          )
-        ),
+          child: Container(
+  width: MediaQuery.of(context).size.width,
+  height: 100,
+  decoration: BoxDecoration(
+    image: DecorationImage(
+      fit: BoxFit.fitWidth,
+      image: NetworkImage("https://media.gettyimages.com/photos/kevin-durant-of-the-brooklyn-nets-dunks-the-ball-during-the-game-the-picture-id1230267683?k=6&m=1230267683&s=612x612&w=0&h=gKko2HC09OIF8GxJC_ro6r_IYQTAmgn9L3KTQWm7NLI="),
+    ),
+  ),
+)),
+       Container(
+      height: 50,
+      //color: Colors.indigo,
+      child: const Center(child: Text(
+      "Les Brooklyn Nets de Kevin Durant gagnent facilement contre les Warriors ",
+      style:  TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
+      
+      )
+      ),
+    ),
       ],
 
     ),
